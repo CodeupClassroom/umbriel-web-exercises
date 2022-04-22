@@ -110,10 +110,10 @@
 
         // We also have access to the lastIndexOf method.
 
-    const myFavNumbers = [17,34,22,17,19,17];
+    const myFavNumbers = [25,34,22,25,19,25];
 
-    // console.log(myFavNumbers.indexOf(17));
-    // console.log(myFavNumbers.lastIndexOf(17));
+    // console.log(myFavNumbers.indexOf(25));
+    // console.log(myFavNumbers.lastIndexOf(25));
 
     // We can now see where the last occurrence of a piece of data occurs.
 
