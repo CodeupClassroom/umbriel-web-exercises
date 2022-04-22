@@ -82,7 +82,7 @@
     let removedCheese = cheeses.shift();
 
     // console.log(removedCheese + " has been removed from cheeses array.");
-
+    //
     // logTheCheeses();
 
     // It's important to note that the return from the pop and shift methods is the item being removed from the array.
@@ -164,11 +164,11 @@
 
     cheeses.sort();
 
-    // logTheCheeses();
-    //
-    // console.log(myFavNumbers.sort().reverse());
-    //
-    // console.log([6, 19, 55, "Walter", "Jesse", "Mike"].sort());
+    logTheCheeses();
+
+    console.log(myFavNumbers.sort().reverse());
+
+    console.log([6, 19, 55, "Walter", "Jesse", "Mike"].sort());
 
     /**
      * "Hey David, now that I understand how arrays work a lot better, can we get a bit more wild with it?"
@@ -178,14 +178,21 @@
 
     let names = csvNames.split(",");
 
-    // console.log(names);
+    console.log(names);
 
     csvNames = names.reverse().join(",");
 
-    // console.log(csvNames);
+    console.log(csvNames);
 
+    let word = "smart";
 
+    let arrOfWord = word.split("");
 
+    console.log(arrOfWord)
+
+    word = arrOfWord.join("");
+
+    console.log(word);
 
 
     // Secret time: Let's talk about joining two arrays together...
@@ -195,23 +202,27 @@
 
     const staff = alphaTeam.concat(goldTeam);
 
-    // console.log(alphaTeam);
-    // console.log(goldTeam);
-    // console.log(staff);
+    console.log(alphaTeam);
+    console.log(goldTeam);
+    console.log(staff);
 
     // Which I can use to build..
 
     function removeAtIndex(array, index) {
         var arr1 = array.slice(0, index);
+        console.log(arr1);
         var arr2 = array.slice(index + 1);
+        console.log(arr2);
         return arr1.concat(arr2);
     }
 
     console.log(removeAtIndex(cheeses, cheeses.indexOf("Kraft American Singles")));
+
+    logTheCheeses();
     //
-    // console.log(cheeses.splice(cheeses.indexOf("Kraft American Singles")));
+    console.log(cheeses.splice(cheeses.indexOf("Kraft American Singles"), 3));
 
     // Splice is the slice method, but destructive. Meaning it will remove the sliced fragment from the original array.
 
-    // logTheCheeses();
+    logTheCheeses();
 })();
