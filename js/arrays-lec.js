@@ -48,7 +48,12 @@
         }
     }
 
-    instructors.forEach(introInstructors)
+    instructors.forEach(introInstructors);
+
+    let index = 0;
+    for (let instructor of instructors) {
+        console.log(instructor + " at index " + (index++));
+    }
 
 
 })();
