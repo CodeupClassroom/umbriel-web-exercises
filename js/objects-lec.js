@@ -97,7 +97,7 @@
         }
     }
 
-    console.log(bearableWeather());
+    // console.log(bearableWeather());
 
     // Above is an array of weather forecasts, here we can see nested objects within the different objects in the array.
 
@@ -133,7 +133,7 @@
 
     // Notice with the method we used the "this" keyword. This allows us to have an object to reference itself when creating a method. It will not work when trying to define a property.
 
-    user.name = this.username; // This will give an error.
+    // user.name = this.username; // This will give an error.
     user.name = user.username;
     //
     console.log(user.name);
