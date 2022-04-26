@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Object</title>
+</head>
+<body>
+    <h1>Math Object in JS</h1>
+    <script>
+        let random = Math.random();
+        console.log(random);
+
+        let randomInt = function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        console.log(randomInt(20, 200));
+
+        console.log(Math.round(3.14));
+        console.log(Math.round(3.7));
+
+        console.log(Math.floor(3.14));
+        console.log(Math.floor(3.9));
+
+        console.log(Math.ceil(3.14));
+        console.log(Math.ceil(3.7));
+
+        console.log(Math.pow(2, 16));
+
+        console.log(Math.sqrt(144));
+
+        const JEFF_S_SOCIAL_SECURITY_NUMBER = "xxx-xx-xxxx";
+
+        console.log(JEFF_S_SOCIAL_SECURITY_NUMBER);
+
+        console.log(Math.E);
+
+        console.log(Math.PI);
+
+    </script>
+</body>
+</html>
