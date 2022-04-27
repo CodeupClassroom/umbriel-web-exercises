@@ -24,3 +24,16 @@ function fizzBuzz(limit) {
 }
 
 fizzBuzz();
+
+// Write a function that takes in an array of strings and returns a string of the first letters of each element concatenated together:
+
+function allFirstLetters(arrOfStrings) {
+    let bucket = "";
+    for (let str of arrOfStrings) {
+        bucket += str.substring(0,1);
+    }
+    return bucket;
+}
+
+const testArrStrings = ['dog', 'cat', 'frog', 'bat'];
+console.log(allFirstLetters(testArrStrings));
