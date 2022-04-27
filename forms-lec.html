@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms Lecture</title>
+</head>
+<body>
+    <form action="https://request-inspector.glitch.me/" method="post">
+        <label for="text">Tell me a little something!</label>
+        <input type="text" name="text" id="text" placeholder="Enter no more than three words please." value="I like turtles.">
+        <br>
+        <label for="textarea">Tell me ALL about your self</label>
+        <br>
+        <textarea name="textarea" id="textarea" cols="30" rows="10" placeholder="Tell me everything!">Starting data for the textarea.</textarea>
+
+        <hr>
+        <h3>Check all that apply: which of these characters is owned by Sega?</h3>
+        <input type="checkbox" name="sega-question" value="sonic" id="sonic">
+        <label for="sonic">Sonic The Hedgehog</label>
+        <br>
+        <input type="checkbox" name="sega-question" value="morgana" id="morgana">
+        <label for="morgana">Morgana the Cat (Persona series)</label>
+        <br>
+        <input type="checkbox" name="sega-question" value="alex-kidd" id="alex-kidd">
+        <label for="alex-kidd">Alex Kidd</label>
+        <br>
+        <input type="checkbox" name="sega-question" value="gum" id="gum">
+        <label for="gum">Gum (Jet Set Radio series)</label>
+        <h3>Who's that funny little guy with the vacuum on his back?</h3>
+        <input type="radio" name="nintendo-question" value="mario" id="mario">
+        <label for="mario">Mario Mario</label>
+        <br>
+        <input type="radio" name="nintendo-question" value="luigi" id="luigi">
+        <label for="luigi">Luigi Mario</label>
+        <br>
+        <input type="radio" name="nintendo-question" value="wario" id="wario">
+        <label for="wario">Wario from Wario Land 4</label>
+        <br>
+        <input type="radio" name="nintendo-question" value="waluigi" id="waluigi">
+        <label for="waluigi">Waluigi from Mario Tennis</label>
+        <br>
+        <label for="console">What was your favorite video game console?</label>
+        <select name="console" id="console">
+            <option value="5400">Atari 5400</option>
+            <option value="vectrex">Milton Bradley Vectrex</option>
+            <option value="3do">The 3DO</option>
+            <option value="wonderswan">Bandai WonderSwan Pocket Color</option>
+        </select>
+        <input type="hidden" name="did-user-gum-up-the-works" value="no">
+        <input type="submit" value="Send">
+        <button>Send</button>
+    </form>
+</body>
+</html>
