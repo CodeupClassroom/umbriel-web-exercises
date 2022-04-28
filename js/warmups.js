@@ -23,7 +23,7 @@ function fizzBuzz(limit) {
     }
 }
 
-fizzBuzz();
+// fizzBuzz();
 
 // Write a function that takes in an array of strings and returns a string of the first letters of each element concatenated together:
 
@@ -36,4 +36,18 @@ function allFirstLetters(arrOfStrings) {
 }
 
 const testArrStrings = ['dog', 'cat', 'frog', 'bat'];
-console.log(allFirstLetters(testArrStrings));
+// console.log(allFirstLetters(testArrStrings));
+
+
+// Write a function that takes in a string and returns that string in alphabetical order.
+
+function alphabetize(str) {
+    // let strArray = str.split('');
+    // console.log(strArray)
+    // let sortedArray = strArray.sort()
+    // console.log(sortedArray);
+    // return sortedArray.join('');
+    return str.split('').sort().join('');
+}
+
+console.log(alphabetize("codeup"));
