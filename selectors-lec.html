@@ -3,11 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Selectors</title>
+    <style>
+        /*element selector*/
+        body {
+            margin: 0;
+        }
+        h2 {
+            color: blue;
+            font-family: "Comic Sans MS", sans-serif;
+        }
+
+        /*Class Selector*/
+        .supplies {
+            list-style: square;
+        }
+
+        /* ID Selector */
+        #things-i-need {
+            background-color: #fff;
+            /*background-color: rgb(124, 166, 66);*/
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-color {
+            color: forestgreen;
+        }
+
+        /*Descendant Selector*/
+        #things-i-need p {
+            font-weight: bold;
+        }
+
+        /* Direct-Child Selector*/
+        #things-i-need > #lists .non-food-list {
+            font-style: italic;
+            background-color: yellow;
+        }
+
+        /* Combining Selectors */
+        p.text-color.text-center {
+            background-color: blue;
+        }
+
+        .footer-link:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+        .footer-link:visited {
+            color: red;
+        }
+
+        .footer-link {
+            color: green;
+        }
+
+        .footer-link:active {
+            background-color: black;
+            color: white;
+        }
+
+        p {
+            text-indent: 40px;
+        }
+
+
+    </style>
 </head>
 <body>
 <h1>Hello There!</h1>
 <section id="things-i-need">
-    <h2>Welcome to my website!</h2>
+    <h2 class="text-color">Welcome to my website!</h2>
     <div id="lists">
         <h2>Shopping List</h2>
         <ul>
@@ -17,8 +86,8 @@
         </ul>
         <div class="non-food-list">
             <h2>Supply List</h2>
-            <div class="supplies">
-                <ul>
+            <div>
+                <ul class="supplies">
                     <li>Nails</li>
                     <li>Timber</li>
                     <li>Bolts</li>
@@ -27,10 +96,16 @@
             </div>
         </div>
     </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis ducimus excepturi inventore ipsam ipsum minima, neque nisi optio, pariatur perspiciatis placeat quam sunt voluptatibus?</p>
 </section>
 <section id="latin">
     <h2>Do you know latin?</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing <span>elit</span>. Animi asperiores atque blanditiis, dicta doloremque ex facere fuga id iusto officia quam ratione, vitae! Aliquam aliquid asperiores cumque dolor, eveniet facere fuga id in, iusto magnam maiores necessitatibus nesciunt nihil, officiis quidem quisquam vel! A aliquam aut eveniet facilis maxime voluptatibus?</p>
+    <p class="text-center text-color">Lorem ipsum dolor sit amet, consectetur adipisicing <span>elit</span>. Animi asperiores atque blanditiis, dicta
+        doloremque ex facere fuga id iusto officia quam ratione, vitae! Aliquam aliquid asperiores cumque dolor, eveniet
+        facere fuga id in, iusto magnam maiores necessitatibus nesciunt nihil, officiis quidem quisquam vel! A aliquam
+        aut eveniet facilis maxime voluptatibus?</p>
 </section>
+
+<h1><a class="footer-link" href="#">Back to Top</a></h1>
 </body>
 </html>
