@@ -50,4 +50,17 @@ function alphabetize(str) {
     return str.split('').sort().join('');
 }
 
-console.log(alphabetize("codeup"));
+// console.log(alphabetize("codeup"));
+
+//  Write a function that takes in an array of numbers and returns the sum of all elements.
+
+function sumOfElements(arrOfNums) {
+    let bucket = 0;
+    for (let i = 0; i < arrOfNums.length; i++) {
+        bucket += arrOfNums[i];
+    }
+    return bucket;
+}
+
+console.log(sumOfElements([1,2,3,4,5]));
+console.log(sumOfElements([19,27,44,3]));
