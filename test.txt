@@ -2,4 +2,7 @@ Hello there!
 
 
 
-Whoa there! Is this enough for a conflict?
+
+
+
+Second branch, will this conflict?
