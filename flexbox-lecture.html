@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox Basics Examples</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Helvetica;
+            font-weight: bold;
+        }
+        .flex-container {
+            display: flex;
+            width: 100%;
+            border: 3px solid goldenrod;
+            flex-direction: row;
+            /*justify-content: flex-start;*/
+            /*align-items: center;*/
+            height: 300px
+        }
+        .flex-item {
+            background: #BFD45D;
+            border: 2px solid #F9EFD6;
+            padding: 1em;
+        }
+
+        .flex-item:nth-of-type(2) {
+            margin: 0 auto;
+        }
+        /*.flex-item:nth-of-type(2) {*/
+        /*    !*align-self: flex-end;*!*/
+        /*    !*flex-grow: 1;*!*/
+        /*}*/
+        /*.flex-item:nth-of-type(3) {*/
+        /*    !*align-self: flex-end;*!*/
+        /*    !*flex-grow: 1;*!*/
+        /*}*/
+
+        /*.flex-item:nth-of-type(even) {*/
+        /*    height: 5em*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div class="flex-container">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+<!--    <div class="flex-item">Item 4</div>-->
+<!--    <div class="flex-item">Item 5</div>-->
+<!--    <div class="flex-item">Item 6</div>-->
+<!--    <div class="flex-item">Item 7</div>-->
+<!--    <div class="flex-item">Item 8</div>-->
+<!--    <div class="flex-item">Item 9</div>-->
+<!--    <div class="flex-item">Item 10</div>-->
+<!--    <div class="flex-item">Item 11</div>-->
+<!--    <div class="flex-item">Item 12</div>-->
+<!--    <div class="flex-item">Item 13</div>-->
+<!--    <div class="flex-item">Item 14</div>-->
+<!--    <div class="flex-item">Item 15</div>-->
+</div>
+
+</body>
+</html>

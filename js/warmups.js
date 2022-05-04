@@ -50,4 +50,108 @@ function alphabetize(str) {
     return str.split('').sort().join('');
 }
 
-console.log(alphabetize("codeup"));
+// console.log(alphabetize("codeup"));
+
+//  Write a function that takes in an array of numbers and returns the sum of all elements.
+
+function sumOfElements(arrOfNums) {
+    let bucket = 0;
+    for (let i = 0; i < arrOfNums.length; i++) {
+        bucket += arrOfNums[i];
+    }
+    return bucket;
+}
+
+// console.log(sumOfElements([1,2,3,4,5]));
+// console.log(sumOfElements([19,27,44,3]));
+
+
+
+
+// Create a function, returnProductEssentialDetails, that takes in a product object and returns a simpler product object containing only the product name and price in cents.
+
+    // Examples...
+
+let product1 = {
+    name: 'Hammer',
+    priceInCents: 400,
+    description: 'It is a hammer.',
+    inventory: 25034
+}
+
+let product2 = {
+    name: 'Computer',
+    priceInCents: 40000,
+    description: 'It is a computer.',
+    inventory: 33000
+}
+
+let product3 = {
+    name: 'Ruler',
+    priceInCents: 1000,
+    description: 'It is a ruler.',
+    inventory: 2200
+}
+
+
+function returnProductEssentialDetails(product) {
+    return {
+        name: product.name,
+        priceInCents: product.priceInCents
+    }
+}
+
+
+let products = [product1, product2, product3];
+
+function returnAllProductsEssentialDetails(products) {
+    let productsOutput = [];
+    products.forEach(function(product) {
+        productsOutput.push(returnProductEssentialDetails(product));
+    });
+    return productsOutput;
+}
+
+console.log(returnAllProductsEssentialDetails(products));
+
+
+// console.log(returnProductEssentialDetails(product1)); // returns...
+
+/*
+
+    {
+        name: 'Hammer',
+        priceInCents: 400
+    }
+
+*/
+
+
+// console.log(returnProductEssentialDetails(product2)); // returns...
+
+/*
+
+    {
+        name: 'Computer',
+        priceInCents: 40000
+    }
+
+*/
+
+
+// console.log(returnProductEssentialDetails(product3)); // returns...
+
+/*
+
+    {
+        name: 'Ruler',
+        priceInCents: 1000
+    }
+
+*/
+
+
+//
+// BONUS (if time permits)
+//
+// Create a function, returnAllProductsEssentialDetails, that takes in an array of product objects and returns an array of product objects containing only the essential details of the product name and price in cents.
