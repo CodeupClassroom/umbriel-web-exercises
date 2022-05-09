@@ -155,3 +155,52 @@ console.log(returnAllProductsEssentialDetails(products));
 // BONUS (if time permits)
 //
 // Create a function, returnAllProductsEssentialDetails, that takes in an array of product objects and returns an array of product objects containing only the essential details of the product name and price in cents.
+
+
+// Write a function that will accept an array of objects and return the tallest object from the array.
+
+const hamsters = [
+    {
+        name: "Hamtaro",
+        heightInMM: 86,
+        fur: ['orange', 'white'],
+        gender: "male",
+        dateOfBirth: "August 6"
+    } , {
+        name: "Bijou",
+        heightInMM: 75,
+        fur: ['white'],
+        gender: "female",
+        dateOfBirth: "July 10"
+    } , {
+        name: "Oxnard",
+        heightInMM: 100,
+        fur: ['grey', 'white'],
+        gender: "male",
+        dateOfBirth: "May 3"
+    } , {
+        name: "Boss",
+        heightInMM: 120,
+        fur: ['brown', 'white'],
+        gender: "male",
+        dateOfBirth: "September 21"
+    } , {
+        name: "Snoozer",
+        heightInMM: 85,
+        fur: ['brown', 'white', "pink"],
+        gender: "male",
+        dateOfBirth: "January 14"
+    }
+];
+
+function returnTallestHamster(arr) {
+    let tallest = {heightInMM: 0};
+    for (let hamster of arr) {
+        if (hamster.heightInMM > tallest.heightInMM) {
+            tallest = hamster;
+        }
+    }
+    return tallest;
+}
+
+console.log(returnTallestHamster(hamsters));
