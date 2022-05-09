@@ -1,0 +1,17 @@
+.block {
+    min-height: 88px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    display: flex;
+}
+
+#special-block {
+    display: none
+}
+
+@media screen and (min-width: 576px){
+    #special-block {
+        display: flex;
+    }
+}
