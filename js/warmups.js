@@ -193,9 +193,9 @@ const hamsters = [
     }
 ];
 
-function returnTallestHamster(arr) {
+function returnTallestHamster(hamsters) {
     let tallest = {heightInMM: 0};
-    for (let hamster of arr) {
+    for (let hamster of hamsters) {
         if (hamster.heightInMM > tallest.heightInMM) {
             tallest = hamster;
         }
@@ -203,4 +203,36 @@ function returnTallestHamster(arr) {
     return tallest;
 }
 
+function returnTallestHamsterFor(arr) {
+    let tallest = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i].heightInMM > tallest.heightInMM) {
+            tallest = arr[i];
+        }
+    }
+    return tallest;
+}
+
 console.log(returnTallestHamster(hamsters));
+
+function mostColorful(hamsters) {
+    let mostColors = {fur : []};
+    for (let hamster of hamsters) {
+        if (hamster.fur.length > mostColors.fur.length) {
+            mostColors = hamster;
+        }
+    }
+    return mostColors;
+}
+
+function mostColorfulFor(hamsters) {
+    let mostColors = hamsters[0];
+    for (let x = 1; x < hamsters.length; x++) {
+        if (hamsters[x].fur.length > mostColors.fur.length) {
+            mostColors = hamsters[x];
+        }
+    }
+    return mostColors;
+}
+
+console.log(mostColorfulFor(hamsters));
