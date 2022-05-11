@@ -255,3 +255,4 @@ function makeObjectFromString(str) {
 
 console.log(makeObjectFromString('tacocat'));
 console.log(makeObjectFromString('John Jacob'));
+console.log(makeObjectFromString('Kacy Bobby'));
