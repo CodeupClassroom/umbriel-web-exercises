@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Introduction</title>
+</head>
+<body>
+<h1 id="pageIntro">Amazing Page</h1>
+<h1>Average Page</h1>
+<h1>Not So Amazing Page</h1>
+<div id="wrapItUp">
+    <p id="introToTheList">This is going to be an amazing list</p>
+    <ul id="theList">
+        <li class="doggysFaveFoods">Raw steak</li>
+        <li class="doggysFaveFoods">Hot dogs</li>
+        <li>Fried liver</li>
+        <li class="doggysFaveFoods">Cheese</li>
+        <li>Kibble</li>
+    </ul>
+</div>
+<p id="doggysFaveFoods">Not going to get the red border</p>
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    $(function() {
+        // let pContent = $("#introToTheList");
+        // alert(pContent.html());
+        // console.log(pContent);
+
+        // $(".doggysFaveFoods").css("border", "1px solid #f00");
+
+        $("li").css("font-size", "20px");
+
+        $("h1, p, li").css("background", "#ef0");
+
+        $("h1").each(function (index) {
+            if (index % 2 !== 0) {
+                alert($(this).html());
+            }
+        });
+
+    });
+</script>
+</body>
+</html>
