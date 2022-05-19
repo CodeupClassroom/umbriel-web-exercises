@@ -253,6 +253,7 @@ function makeObjectFromString(str) {
     return obj;
 }
 
-console.log(makeObjectFromString('tacocat'));
-console.log(makeObjectFromString('John Jacob'));
-console.log(makeObjectFromString('Kacy Bobby'));
+// console.log(makeObjectFromString('tacocat'));
+// console.log(makeObjectFromString('John Jacob'));
+// console.log(makeObjectFromString('Kacy Bobby'));
+

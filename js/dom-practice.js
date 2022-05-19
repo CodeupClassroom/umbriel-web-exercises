@@ -27,3 +27,28 @@ document.getElementById("changeColor").addEventListener("click", function () {
     let color = document.getElementById("color").value;
     document["body"]["style"]["backgroundColor"] = color;
 });
+
+// DOM Practice Question #2
+
+// 1. Create a button with the id of addTodo. Create an input of type text with the id of "todo"
+// 2. Create an unordered list with the id="todosList"
+// 4. When the add button is clicked:
+//       a. Make it such that the value from the input is added to a list items.
+//          example: <li>input</li> inside of <ul>
+//       b. Reset the value in the todo input.
+// 5. If the value for the input is empty. Prevent it from creating another <li> element
+
+let todoInput = document.getElementById("todo");
+let todoList = document.getElementById("todosList");
+let todoBtn = document.getElementById("addTodo");
+
+todoBtn.addEventListener("click", function () {
+    if (todoInput.value !== "") {
+        let str = "<li>" + todoInput.value + "</li>";
+        todoList.innerHTML += str;
+        todoInput.value = "";
+    }
+});
+
+
+
