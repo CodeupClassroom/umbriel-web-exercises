@@ -72,10 +72,10 @@
 
     // Click Event - using jQuery
 
-    $('#moon-travel').click(function () {
+    $('#moon-travel').click(function (event) {
+        console.log(event.target)
         $('#main-content').css('background-image', 'url(img/moon-surface.png)');
         $(this).html('Do I have to wear a mask on the moon?')
-
     })
 
     // Long way
@@ -157,10 +157,20 @@
     // recognizes all keyboard keys when they are pushed down
     // repeats as key is held down
 
+    $(document).keydown(function(event) {
+        console.log(event)
+        console.log(event.key);
+    })
+
     // keypress
 
     // recognizes the character that is typed
     // only recognizes keys that can have a typed output
+
+    // $(document).keypress(function(e) {
+    //     console.log(e.key);
+    //     console.log(e.keyCode)
+    // })
 
     // keyup
 
@@ -178,6 +188,19 @@
     // });
 
     // jQuery Key Event
+
+    // $(document).keyup(function(event) {
+    //     if (event.key === " ") {
+    //         $(".space-bar").css("display", "inline");
+    //     }
+    // })
+
+    // $(document).on("keyup", function(event) {
+    //     console.log(event.keyCode)
+    //     if (event.keyCode === 32) {
+    //         $(".space-bar").css("display", "inline");
+    //     }
+    // })
 
 </script>
 </body>
