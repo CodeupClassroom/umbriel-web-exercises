@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 id="heading">Hello, World</h1>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        let jHeading = $("#heading");
+        let vanillaHeading = document.getElementById("heading");
+
+        vanillaHeading.innerHTML = "Howdy y'all!";
+        jHeading.html("Steve Gutenberg!");
+
+        jHeading.innerHTML = "Jeff";
+        vanillaHeading.html("Greg");
+
+        console.log(jHeading);
+        console.log(vanillaHeading);
+    </script>
+</body>
+</html>
