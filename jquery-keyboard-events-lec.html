@@ -129,7 +129,8 @@
 
     // jQuery way
 
-    function changeTextColor () {
+    function changeTextColor (e) {
+        e.preventDefault();
         console.log($('#text-color').val())
         $('body').css('color', `${$('#text-color').val()}`)
     }
@@ -145,7 +146,7 @@
     // jQuery change event
 
     $('#travel-items').change(function (event) {
-        $('.result').html(`I agree that ${event.target.value} is important!`)
+        $('.result').html("I agree that " + event.target.value + " is important!")
     })
 
 
