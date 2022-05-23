@@ -1,19 +1,18 @@
-
 // TODO: Prompt the user to enter a color. Select the first div with the class of "question", and change the font color to the users input.
-let answer = prompt("Pick a color.");
-
-// let div1 = document.getElementsByClassName("question")[0];
-// console.log(document.getElementsByClassName("question"));
+// let answer = prompt("Pick a color.");
 //
-// div1.style.color = answer;
-
-let divs = document.getElementsByClassName("question");
-
-for (let i = 0; i < divs.length; i++) {
-    if (i === 0) {
-        divs[i].style.color = answer;
-    }
-}
+// // let div1 = document.getElementsByClassName("question")[0];
+// // console.log(document.getElementsByClassName("question"));
+// //
+// // div1.style.color = answer;
+//
+// let divs = document.getElementsByClassName("question");
+//
+// for (let i = 0; i < divs.length; i++) {
+//     if (i === 0) {
+//         divs[i].style.color = answer;
+//     }
+// }
 
 //     DOM Practice Question #1
 //     Create an HTML file called dom-practice.html in codeup-web-exercises repos.
@@ -49,6 +48,72 @@ todoBtn.addEventListener("click", function () {
         todoInput.value = "";
     }
 });
+// DOM Practice Question #3
+
+// Part 1:
+// Every 1 seconds take the H1 tags and change the font size to 10px.
+// If its already 10px set it to 20px;
+
+// Part 2:
+// Add a toggle button with id of "toggleH1"
+// use that button to stop and restart the h1 tags from changing size.
+
+// Vanilla JS
+// const toggleBtn = document.getElementById("toggleH1");
+//
+// function toggleFontSize() {
+//     let h1s = document.getElementsByTagName("h1");
+//     for (let h1 of h1s) {
+//         if (h1.style.fontSize !== "10px") {
+//             h1.style.fontSize = "10px";
+//         } else {
+//             h1.style.fontSize = "20px";
+//         }
+//     }
+// }
+//
+// let h1IntervalId = setInterval(toggleFontSize, 1000);
+//
+// toggleBtn.addEventListener("click", function () {
+//     if (h1IntervalId === null) {
+//         h1IntervalId = setInterval(toggleFontSize, 1000);
+//     } else {
+//         clearInterval(h1IntervalId);
+//         h1IntervalId = null;
+//     }
+// });
+
+
+
+
+// jQuery
+const toggleBtn = $("#toggleH1");
+
+function toggleFontSize() {
+    let h1s = $("h1");
+    h1s.each(function () {
+        if ($(this).css("font-size") !== "10px") {
+            $(this).css("font-size", "10px");
+        } else {
+            $(this).css("font-size", "20px");
+        }
+    });
+}
+
+let intervalId = setInterval(toggleFontSize, 1000);
+
+toggleBtn.click(function () {
+    if (intervalId === null) {
+        intervalId = setInterval(toggleFontSize, 1000);
+    } else {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+});
+
+
+
+
 
 
 
