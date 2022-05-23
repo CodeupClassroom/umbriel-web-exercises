@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Events</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("img/earth-to-moon.jpeg");
+            background-size: cover;
+            color: white;
+        }
+
+        #goku {
+            height: 250px;
+            margin-top: 200px;
+            width: auto;
+        }
+
+        .space-bar {
+            display: none;
+            height: 200px;
+            width: auto;
+            margin-left: 200px;
+            position: absolute;
+            right: 0;
+            bottom: 150px;
+        }
+
+    </style>
+</head>
+<body id="main-content">
+<h1 class="p-5" id="moon-travel">Fly me to the Moon!</h1>
+<section class="ml-5">
+    <div>
+        <form id="form" method="get" action="">
+            <label for="text-color">Change the text color?</label>
+            <input type="text" id="text-color" name="text-color" placeholder="red">
+            <button type="submit" id="color-btn">Change Font Color</button>
+        </form>
+    </div>
+    <br>
+    <label for="travel-items">
+        What's your top item for space travel?
+    </label>
+    <select id="travel-items">
+        <option>Select an Item:</option>
+        <option value="Rocket">Rocket</option>
+        <option value="Fuel">Fuel</option>
+        <option value="Space Suit">Space Suit</option>
+        <option value="Food & Water">Food & Water</option>
+    </select>
+</section>
+<div class="ml-5" id="little-list">
+    <h2 class="result"></h2>
+    <img src="img/goku-normal.png" id="goku">
+    <button class="goku-chill">Goku Chill!</button>
+</div>
+<img src="img/space-bar.png" alt="simple bar" class="space-bar">
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+    // Click Event - Old Way
+    // var moonEvent = function () {
+    //     document.querySelector("#main-content").style.backgroundImage = "url(img/moon-surface.png)";
+    //     // this = moonText object
+    //     this.innerHTML = "Do I have to wear a mask on the moon?"
+    // }
+    // var moonText = document.querySelector("#moon-travel");
+    //
+    // moonText.addEventListener("click", moonEvent);
+
+    // Click Event - using jQuery
+
+    $('#moon-travel').click(function (event) {
+        console.log(event.target)
+        $('#main-content').css('background-image', 'url(img/moon-surface.png)');
+        $(this).html('Do I have to wear a mask on the moon?')
+    })
+
+    // Long way
+    // document.querySelector("#moon-travel").addEventListener("click", function () {
+    //     document.querySelector("#main-content").style.backgroundImage = "url(img/moon-surface.png)";
+    //     document.querySelector("#moon-travel").innerHTML = "Do I have to wear a mask on the moon?";
+    // });
+
+    // Mouse Event
+
+    // var goku = document.querySelector("#goku");
+    //
+    // var gokuListener = function () {
+    //     this.src = 'img/goku-mad.png';
+    //     this.addEventListener("mouseout", function() {
+    //         this.src = "img/goku-normal.png";
+    //     });
+    // }
+    //
+    // goku.addEventListener("mouseover", gokuListener);
+
+    // Hover event
+
+    $('#goku').hover(function (){
+        this.src = 'img/goku-mad.png';
+    }, function () {
+        this.src = 'img/goku-normal.png';
+    })
+
+    // Removing an Event Listener
+
+    // var gokuChill = function () {
+    //     goku.removeEventListener("mouseover", gokuListener);
+    // }
+    //
+    // document.querySelector(".goku-chill").addEventListener("click", gokuChill);
+
+    // Removing events using .off(event[s], selector, handler)
+
+    $('.goku-chill').click(function () {
+        $("#goku").off('mouseenter');
+    })
+
+
+    // Click Event
+
+    // document.querySelector("#color-btn").addEventListener("click", function() {
+    //     console.log(document.getElementById("text-color").value);
+    //     document.querySelector("body").style.color = document.getElementById("text-color").value;
+    // });
+
+    // jQuery way
+
+    function changeTextColor (e) {
+        e.preventDefault();
+        console.log($('#text-color').val())
+        $('body').css('color', `${$('#text-color').val()}`)
+    }
+
+    $('#color-btn').click(changeTextColor);
+
+    // Change event
+    // document.querySelector("#travel-items").addEventListener("change", function(event) {
+    //     console.log(event.target);
+    //     document.querySelector(".result").innerHTML = `I agree that ${event.target.value} is important!`
+    // });
+
+    // jQuery change event
+
+    $('#travel-items').change(function (event) {
+        $('.result').html("I agree that " + event.target.value + " is important!")
+    })
+
+
+    // key events fired in the following order: keydown->keypress->keyup
+
+    // keydown
+
+    // recognizes all keyboard keys when they are pushed down
+    // repeats as key is held down
+
+    $(document).keydown(function(event) {
+        console.log(event)
+        console.log(event.key);
+    })
+
+    // keypress
+
+    // recognizes the character that is typed
+    // only recognizes keys that can have a typed output
+
+    // $(document).keypress(function(e) {
+    //     console.log(e.key);
+    //     console.log(e.keyCode)
+    // })
+
+    // keyup
+
+    // recognizes all keyboard keys when they are pushed down
+    // recognizes all keyboard keys when they are released
+    // will fire only once per key push
+
+
+    // Key event
+    // document.addEventListener("keyup", function(event){
+    //     console.log(event);
+    //     if (event.key === " ") {
+    //         document.querySelector(".space-bar").style.display = "inline";
+    //     }
+    // });
+
+    // jQuery Key Event
+
+    // $(document).keyup(function(event) {
+    //     if (event.key === " ") {
+    //         $(".space-bar").css("display", "inline");
+    //     }
+    // })
+
+    // $(document).on("keyup", function(event) {
+    //     console.log(event.keyCode)
+    //     if (event.keyCode === 32) {
+    //         $(".space-bar").css("display", "inline");
+    //     }
+    // })
+
+</script>
+</body>
+</html>

@@ -22,21 +22,27 @@
 <script src="js/jquery-3.6.0.js"></script>
 <script>
     $(function() {
-        // let pContent = $("#introToTheList");
-        // alert(pContent.html());
-        // console.log(pContent);
 
-        // $(".doggysFaveFoods").css("border", "1px solid #f00");
+        // 1. Add jQuery code that will change the background color of an h1 element when clicked.
 
-        $("li").css("font-size", "20px");
+        $('h1').click(function() {
+            $(this).css("background", "royalblue");
+        })
 
-        $("h1, p, li").css("background", "#ef0");
+        // 2. Make all paragraphs have a font size of 18px when they are double clicked.
 
-        $("h1").each(function (index) {
-            if (index % 2 !== 0) {
-                alert($(this).html());
-            }
-        });
+        $("p").dblclick(function(event) {
+            console.log(event)
+            $(this).css("font-size", "18px");
+        })
+
+        // 3. Set all li text color to red when the mouse is hovering; reset to black when it is not.
+
+        $('li').hover(function() {
+            $(this).css("color", "red");
+        }, function() {
+            $(this).css("color", "black");
+        })
 
     });
 </script>
