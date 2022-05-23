@@ -164,7 +164,7 @@
     thoughts and ideas. Do you need a manager?
   </p>
 
-  <h1>Test</h1>
+  <h1 id="not-this-one">Test</h1>
   <p>
     Just my luck, no ice. You know what? It is beets. I've crashed into a beet truck. I gave it a cold? I gave it a
     virus. A computer virus. God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man
@@ -235,6 +235,29 @@
     $("h1").click(function () {
       $(this).toggleClass("cool-stuff");
     });
+
+    $("h1").each(function () {
+      if ($(this).is("#not-this-one")) {
+          console.log("skip")
+      } else {
+        $(this).addClass("coolest-stuff");
+      }
+    });
+
+    $("main li").each(function (index, element) {
+      if (index % 2 === 0) {
+        $(element).css("background", "rgba(113, 191, 148, .4)");
+      }
+    });
+
+    // $("p").last().css("border", "solid 3px lightblue")
+    //
+    // $("#start-here").css("border", "solid 3px red").prev().css("border", "solid 3px orange").parent().css("border", "solid 3px violet").children().css("border", "solid 3px seagreen");
+
+    $("#start-here").parents("main").children().last().children().last().css("color", "powderblue");
+
+    // $("#start-here").parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().html("oops...");
+
 
 
 </script>
