@@ -87,31 +87,54 @@ todoBtn.addEventListener("click", function () {
 
 
 // jQuery
-const toggleBtn = $("#toggleH1");
+// const toggleBtn = $("#toggleH1");
+//
+// function toggleFontSize() {
+//     let h1s = $("h1");
+//     h1s.each(function () {
+//         if ($(this).css("font-size") !== "10px") {
+//             $(this).css("font-size", "10px");
+//         } else {
+//             $(this).css("font-size", "20px");
+//         }
+//     });
+// }
+//
+// let intervalId = setInterval(toggleFontSize, 1000);
+//
+// toggleBtn.click(function () {
+//     if (intervalId === null) {
+//         intervalId = setInterval(toggleFontSize, 1000);
+//     } else {
+//         clearInterval(intervalId);
+//         intervalId = null;
+//     }
+// });
 
-function toggleFontSize() {
-    let h1s = $("h1");
-    h1s.each(function () {
-        if ($(this).css("font-size") !== "10px") {
-            $(this).css("font-size", "10px");
-        } else {
-            $(this).css("font-size", "20px");
-        }
-    });
-}
+// DOM Question #4
 
-let intervalId = setInterval(toggleFontSize, 1000);
+// When the mouse enters the content area of the 4th div with the class of "question", an alert should pop up
+// that reads "CONGRATULATIONS ON YOUR NEW CRUISE!";
 
-toggleBtn.click(function () {
-    if (intervalId === null) {
-        intervalId = setInterval(toggleFontSize, 1000);
-    } else {
-        clearInterval(intervalId);
-        intervalId = null;
-    }
+// Vanilla JS
+// w/ getElementsByClassName
+// document.getElementsByClassName("question")[4].addEventListener("mouseenter", function() {
+//     alert("CONGRATULATIONS ON YOUR NEW CRUISE!");
+// });
+// w/ querySelector
+// document.querySelector(".question:nth-of-type(5)").addEventListener("mouseenter", function() {
+//     alert("CONGRATULATIONS ON YOUR NEW CRUISE!");
+// });
+
+// jQuery
+// w/ Traversal Methods
+// $(".question").first().next().next().next().next().mouseenter(function () {
+//     alert("CONGRATULATIONS ON YOUR NEW CRUISE!")
+// });
+// w/ nth-of-type
+$(".question:nth-of-type(5)").mouseenter(function () {
+    alert("CONGRATULATIONS ON YOUR NEW CRUISE!")
 });
-
-
 
 
 
