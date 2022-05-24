@@ -5,16 +5,16 @@
     //     alert("Howdy! How are ya?");
     // }, 5000);
 
-    // let songSung = 0;
+    let songSung = 0;
 
-    // let intervalId = setInterval(function () {
-    //     songSung++;
-    //     console.log(songSung);
-    //     alert("This is the song that never ends. It just goes on and on my friends. Somebody started singing not knowing what it was, and now we'll all just keep on singing this because.");
-    //     if (songSung >= 5) {
-    //         clearInterval(intervalId);
-    //     }
-    // }, 3000);
+    let intervalId = setInterval(function () {
+        songSung++;
+        console.log(songSung);
+        alert("This is the song that never ends. It just goes on and on my friends. Somebody started singing not knowing what it was, and now we'll all just keep on singing this because.");
+        if (songSung >= 5) {
+            clearInterval(intervalId);
+        }
+    }, 3000);
 
     // console.log("Hello?");
 
