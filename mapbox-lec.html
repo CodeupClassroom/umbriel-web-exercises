@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>It's A Map! - An Lecture</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet'/>
+</head>
+<body>
+<div id='map' style='width: 95vw; height: 75vh; margin: auto'></div>
+<h1 id="place"></h1>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/geocode-utils.js"></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_API_KEY;
+    const MAP = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.4946, 29.4252], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+
+    const MARKER = new mapboxgl.Marker()
+        .setLngLat([-98.4896, 29.4269])
+        .setDraggable(true)
+        .addTo(MAP);
+
+    // MARKER.setLngLat([-105.9378, 35.6870]);
+
+    const CODEUP_POPUP = new mapboxgl.Popup()
+        .setLngLat([-98.489615, 29.426827])
+        .setHTML("<p>Codeup Rocks!</p>")
+        .addTo(MAP);
+
+
+    const POPUP = new mapboxgl.Popup()
+        .setHTML("<p>Santa Fe is a place that exists...</p>");
+
+    MARKER.setPopup(POPUP);
+
+    geocode("1510 Polk St, Houston, TX 77003", MAPBOX_API_KEY).then(function (info) {
+        console.log(info);
+        const POPUP_TOYOTA = new mapboxgl.Popup()
+        .setLngLat(info)
+            .setHTML("<p>This is where the Rockets play!</p>")
+        .addTo(MAP);
+    });
+
+    reverseGeocode({lat: 52.3353, lng: 4.8659}, MAPBOX_API_KEY).then(function(location) {
+        console.log(location);
+    });
+
+    let LONG_LAT = [];
+
+    MARKER.on("dragend", function () {
+        LONG_LAT = MARKER.getLngLat();
+        // document.getElementById("place").innerHTML = LONG_LAT.lng + ", " + LONG_LAT.lat;
+        MAP.flyTo({center: [LONG_LAT.lng, LONG_LAT.lat]});
+        reverseGeocode(LONG_LAT, MAPBOX_API_KEY).then(function (data) {
+            document.getElementById("place").innerHTML = data;
+        })
+    })
+
+</script>
+</body>
+</html>
