@@ -41,12 +41,12 @@
     geocode("1510 Polk St, Houston, TX 77003", MAPBOX_API_KEY).then(function (info) {
         console.log(info);
         const POPUP_TOYOTA = new mapboxgl.Popup()
-        .setLngLat(info)
+            .setLngLat(info)
             .setHTML("<p>This is where the Rockets play!</p>")
-        .addTo(MAP);
+            .addTo(MAP);
     });
 
-    reverseGeocode({lat: 52.3353, lng: 4.8659}, MAPBOX_API_KEY).then(function(location) {
+    reverseGeocode({lat: 52.3353, lng: 4.8659}, MAPBOX_API_KEY).then(function (location) {
         console.log(location);
     });
 
@@ -60,6 +60,35 @@
             document.getElementById("place").innerHTML = data;
         })
     })
+
+
+    // -74.0445004, 40.6892494 statue of liberty
+    // -73.9879522, 40.7485452 empire state building
+    // -77.0523647, 38.8892686 lincoln memorial
+
+    let places = [
+        {
+            name: "Statue of Liberty",
+            coordinates: [-74.0445004, 40.6892494]
+        }, {
+            name: "Empire State Building",
+            coordinates: [-73.9879522, 40.7485452]
+        }, {
+            name: "Lincoln Memorial",
+            coordinates: [-77.0523647, 38.8892686]
+        }
+    ];
+
+    places.forEach(function(place) {
+        let marker = new mapboxgl.Marker()
+        .setLngLat(place.coordinates)
+        .addTo(MAP)
+    })
+
+    console.log(MAP);
+
+
+
 
 </script>
 </body>
