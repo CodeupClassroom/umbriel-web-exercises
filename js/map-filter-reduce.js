@@ -1,143 +1,102 @@
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-var evens = [];
-for (var i = 0; i < numbers.length; i += 1) {
-    if (numbers[i] % 2 === 0) {
-        evens.push(numbers[i]);
-    }
-}
-console.log(evens); // [2, 4, 6, 8, 10]
-
-const newEvens = numbers.filter((num) => {
-    return num % 2 === 0;
-});
-
-console.log(newEvens);
-
-const hamsters = [
-    {
-        name: "Hamtaro",
-        heightInMM: 86,
-        fur: ['orange', 'white'],
-        gender: "male",
-        dateOfBirth: "August 6"
-    } , {
-        name: "Bijou",
-        heightInMM: 75,
-        fur: ['white'],
-        gender: "female",
-        dateOfBirth: "July 10"
-    } , {
-        name: "Oxnard",
-        heightInMM: 100,
-        fur: ['grey', 'white'],
-        gender: "male",
-        dateOfBirth: "May 3"
-    } , {
-        name: "Boss",
-        heightInMM: 120,
-        fur: ['brown', 'white'],
-        gender: "male",
-        dateOfBirth: "September 21"
-    } , {
-        name: "Snoozer",
-        heightInMM: 85,
-        fur: ['brown', 'white', "pink"],
-        gender: "male",
-        dateOfBirth: "January 14"
-    }
-];
-
-const tallHamsters = hamsters.filter((hamster) => {
-    return hamster.heightInMM >= 100;
-});
-
-console.log(tallHamsters);
-
-console.log(hamsters);
-
-console.log(numbers);
-
-const dubNums = numbers.map((number) => number * 2);
-console.log(dubNums);
-
 const users = [
     {
-        name: 'zach',
-        email: 'zach@codeup.com',
-        languages: ['javascript', 'bash']
-    },
-    {
+        id: 1,
         name: 'ryan',
         email: 'ryan@codeup.com',
-        languages: ['clojure', 'javascript']
+        languages: ['clojure', 'javascript'],
+        yearsOfExperience: 5
     },
     {
+        id: 2,
         name: 'luis',
         email: 'luis@codeup.com',
-        languages: ['java', 'scala', 'php']
+        languages: ['java', 'scala', 'php'],
+        yearsOfExperience: 6
     },
     {
+        id: 3,
+        name: 'zach',
+        email: 'zach@codeup.com',
+        languages: ['javascript', 'bash'],
+        yearsOfExperience: 7
+    },
+    {
+        id: 4,
         name: 'fernando',
         email: 'fernando@codeup.com',
-        languages: ['java', 'php', 'sql']
+        languages: ['java', 'php', 'sql'],
+        yearsOfExperience: 8
     },
     {
+        id: 5,
         name: 'justin',
         email: 'justin@codeup.com',
-        languages: ['html', 'css', 'javascript', 'php']
+        languages: ['html', 'css', 'javascript', 'php'],
+        yearsOfExperience: 9
     }
 ];
 
-const userIntroductions = users.map((user) => `Hello, my name is ${user.name}, and you can contact me at ${user.email}. I enjoy writing code in the following languages: ${user.languages.join(", ")}.`);
+const usersWhoKnowAtLeastThreeLanguages = users.filter((user) => user.languages.length >= 3);
 
-for (let intro of userIntroductions) {
-    console.log(intro);
-}
+console.log(usersWhoKnowAtLeastThreeLanguages);
 
-const differentNumbers = [34,22,18,99,3];
+const emails = users.map(({email}) => email);
 
-let biggestNum = differentNumbers.reduce((biggest, num) => {
-    // if (biggest < num) {
-    //     biggest = num;
-    // }
-    // return biggest;
-    return (biggest > num) ? biggest : num;
-}, 0);
+console.log(emails);
 
-console.log(biggestNum);
+const totalExp = users.reduce((total, user) => total + user.yearsOfExperience, 0);
+console.log(totalExp / users.length);
 
-let tallestHamster = hamsters.reduce((tallOne, hamster, index, arr) => {
-    console.log(index);
-    console.log(arr);
-    return (tallOne.heightInMM > hamster.heightInMM) ? tallOne : hamster;
-}, {heightInMM: 0});
+const average = users.reduce((ave, user) => ave + user.yearsOfExperience / users.length, 0);
+console.log(average);
 
-// This won't do what we want.
-let tallOne = {heightInMM: 0}
-let tallestHamsterFilter = hamsters.filter((hamster) => {
-    tallOne = (tallOne.heightInMM > hamster.heightInMM) ? tallOne : hamster;
-    return tallOne === hamster;
-});
-
-const mostColorful = (prev, hamster) => {
-    if (prev.fur.length > hamster.fur.length) {
-        return prev;
+const longestEmail = users.reduce((email, user) => {
+    if (email.length > user.email.length) {
+        return email;
     } else {
-        return hamster;
+        return user.email;
     }
-};
+}, users[0]); // or you can use emails.reduce((longStr, email) => (longStr.length > email.length) ? longStr : email);
 
-let mostColorfulHamster = hamsters.reduce(mostColorful, {fur: []});
-let colorfulHamsterMessage = `${mostColorfulHamster.name} is the most colorful hamster, having ${mostColorfulHamster.fur.length} colors in their fur!`
+console.log(longestEmail);
 
-console.log(tallestHamster);
-console.log(tallestHamsterFilter);
-console.log(mostColorful);
-console.log(colorfulHamsterMessage);
+const introduction = users.reduce((str, user, index) => {
+    if (index === users.length - 1) {
+        return `${str}and ${user.name}.`;
+    } else {
+        return `${str}${user.name}, `;
+    }
+}, "Your instructors are: ");
 
-const sum = numbers.reduce((accumulation, num) => accumulation + num, 0);
+console.log(introduction);
 
-console.log(sum);
+// BONUS JONAS
+
+const uniqueLangs = users.reduce((langs, user) => {
+    for (let lang of user.languages) {
+        if (!langs.includes(lang)) { // langs.includes(lang) === false
+            langs.push(lang);
+        }
+    }
+    return langs;
+}, []);
+
+console.log(uniqueLangs);
+
+const davidsCoolWayToGetUniqueLanguages = Array.from(new Set(users.reduce((langs, user) => {
+            for (let lang of user.languages) {
+                langs.push(lang);
+            }
+            return langs;
+        }, [])
+    )
+);
+
+console.log(davidsCoolWayToGetUniqueLanguages);
+
+
+
+
 
 
 
