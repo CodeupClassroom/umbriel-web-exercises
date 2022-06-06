@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Library</title>
+</head>
+<body>
+<h1>RESTful API Requests</h1>
+<form>
+    <label for="title">Title </label>
+    <input type="text" id="title" name="title">
+    <label for="artist">Artist: </label>
+    <input type="text" id="artist" name="artist">
+    <button id="addSong">Add Song</button>
+</form>
+<div id="library"></div>
+
+<script>
+    "use strict";
+
+    // FETCH ALL SONGS
+    const getAllSongs = () => {
+        const URL = "https://acoustic-little-chive.glitch.me/songs";
+        return fetch(URL).then(res => res.json());
+    }
+
+    const renderSongHTML = () => {
+        console.log("Rendering song HTML")
+        getAllSongs().then((data) => {
+            let songCards = data.map(song => {
+                return `
+            <div>
+            <h3>Title: ${song.title}</h3>
+            <p>Artist: ${song.artist}</p>
+            <button data-id="${song.id}">Edit</button>
+            <button data-id="${song.id}">Delete</button>
+            </div>
+            `
+            })
+            console.log(songCards);
+            document.getElementById("library").innerHTML = songCards.join("");
+        })
+    }
+    renderSongHTML();
+
+    // FETCH A SONG BY ID
+
+    const getSongById = (id) => {
+        const URL = `https://acoustic-little-chive.glitch.me/songs/${id}`;
+        return fetch(URL).then(res => res.json()).then(res => console.log(res));
+    }
+
+    getSongById(8);
+
+
+    // EDIT (PUT vs PATCH)
+
+    // PUT method - requires you to resubmit the entire entity.
+    // PATCH method - only edits properties that currently exist in the entity.
+
+
+    // PUT METHOD
+
+    // const editSong = (song) => {
+    //     const URL = "https://acoustic-little-chive.glitch.me/songs";
+    //     let options = {
+    //         method: "PUT",
+    //         headers: {
+    //             // Content-Type : tells the server what type of data we are sending with our request. When interacting with a JSON API, this will usually be in application/json.
+    //             'Content-Type': 'application/json' // establishing the format in which we send the data.
+    //         },
+    //         body: JSON.stringify(song) // convert the JS object into a JSON String before sending it to the server.
+    //     }
+    //
+    //     return fetch(`${URL}/${song.id}`, options).then(resp => resp.json())
+    // }
+    //
+    // let editedSong = {
+    //     id: 1,
+    //     title: "Dirty Deeds",
+    //     artist: "ACDC"
+    // }
+    //
+    // editSong(editedSong);
+
+    // PATCH METHOD
+
+    // const editSong = (song) => {
+    //     const URL = "https://acoustic-little-chive.glitch.me/songs";
+    //     let options = {
+    //         method: "PATCH",
+    //         headers: {
+    //             // Content-Type : tells the server what type of data we are sending with our request. When interacting with a JSON API, this will usually be in application/json.
+    //             'Content-Type': 'application/json' // establishing the format in which we send the data.
+    //         },
+    //         body: JSON.stringify(song) // convert the JS object into a JSON String before sending it to the server.
+    //     }
+    //
+    //     return fetch(`${URL}/${song.id}`, options).then(resp => resp.json())
+    // }
+    //
+    // let editedSong = {
+    //     id: 1,
+    //     title: "TNT",
+    // }
+    //
+    // editSong(editedSong);
+
+    // POST REQUEST
+
+    const addSong = (songObj) => {
+        const URL = "https://acoustic-little-chive.glitch.me/songs";
+        let options = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(songObj)
+        }
+        return fetch(URL, options).then(res => res.json()).then(result => console.log("You've successfully created a new song!", result))
+    }
+
+
+    // Whenever the "Add Song" button is clicked, create new object based on the input fields.
+    document.getElementById("addSong").addEventListener("click", function (e) {
+        e.preventDefault();
+        let newSong = {
+            title: document.getElementById("title").value,
+            artist: document.getElementById("artist").value
+        }
+        addSong(newSong).then((res) => {
+            console.log(res)
+            renderSongHTML()
+        })
+    })
+
+    // DELETE METHOD
+
+    const deleteSong = (id) => {
+        const URL = "https://acoustic-little-chive.glitch.me/songs";
+        let options = {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        return fetch(`${URL}/${id}`, options).then(() => console.log("The song has been deleted successfully")).then(renderSongHTML)
+    }
+
+    deleteSong(1);
+
+</script>
+
+</body>
+</html>
