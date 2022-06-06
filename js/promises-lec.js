@@ -23,16 +23,26 @@
 
 
     fetch("https://randomuser.me/api/")
-    // Once we receive a response, we use the .then() method to determine what will happen next.
-    // The .then() method accepts a callback function, with instructions of what to do with the
-    // data we received. By default, a fetch request will return the data in an XML format.
-    // Therefore, we need to use the .json() method to convert the data into a javascript object.
+    // // Once we receive a response, we use the .then() method to determine what will happen next.
+    // // The .then() method accepts a callback function, with instructions of what to do with the
+    // // data we received. By default, a fetch request will return the data in an XML format.
+    // // Therefore, we need to use the .json() method to convert the data into a javascript object.
     .then((resp) => resp.json())
-    // After we have converted the Promise to a Javascript object, log the data to the console.
-    .then((data) => console.log(data))
-    // The .catch() method accepts a callback function, with instructions of what to do
-    // when a request has failed. Here, we'll log the error to the console.
-    .catch(error => console.log(error));
+    // // After we have converted the Promise to a Javascript object, log the data to the console.
+    .then((data) => {
+        console.log(data)
+        let newUser = {
+            name: `${data.results[0].name.first} ${data.results[0].name.last}`,
+            username: `${data.results[0].login.username}`,
+            email: `${data.results[0].email}`,
+            password: `${data.results[0].login.password}`,
+        }
+        return newUser;
+    })
+        .then(user => console.log(user))
+    // // The .catch() method accepts a callback function, with instructions of what to do
+    // // when a request has failed. Here, we'll log the error to the console.
+    .catch(error => console.error(error));
 
 })
 ();
