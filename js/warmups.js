@@ -257,3 +257,5 @@ function makeObjectFromString(str) {
 // console.log(makeObjectFromString('John Jacob'));
 // console.log(makeObjectFromString('Kacy Bobby'));
 
+
+fetch("https://quotes.rest/qod").then(res => res.json()).then(res => console.log(res))
